@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from docx import Document
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
