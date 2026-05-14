@@ -17,5 +17,13 @@ try:
         print(child.text)
 except Exception as e:
     print(e)
+
 finally:
+
+    document = Document("template.docx")
+    paras = document.paragraphs
+
+    paras[0].text = paras[0].text.replace('{title}','(제목: 오늘의 인기 검색 종목 10 개 입니다.)')
+
+
     driver.quit()
