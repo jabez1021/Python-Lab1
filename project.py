@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from docx import Document
-##from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.oxml.ns import qn
 
 def set_hangul_font(paragraph, font_name="Malgun Gothic"):
@@ -20,8 +19,7 @@ try:
     driver.get('https://finance.naver.com/sise/')
     item = driver.find_element(By.ID, 'popularItemList')
     childs = item.find_elements(By.TAG_NAME, 'li')
-    ##popular_stocks = [item.text for item in item[:10]]
-
+    
     for child in childs[:10]:
         popular_stocks.append(child.text)
         print(child.text)
