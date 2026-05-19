@@ -4,9 +4,9 @@ from smtplib import SMTP_SSL
 
 SMTP_SERVER = "smtp.naver.com"
 SMTP_PORT = 465
-SMTP_USER = "jabez1021"
+SMTP_USER = "jabez1021@naver.com"
 # real password #
-SMTP_PASSWORD = "Wd$#040522"
+SMTP_PASSWORD = "8MRCFMECM64Q"
 
 def send_mail(name, addr, contents, attachment=False):
     msg = MIMEMultipart("alternative")
