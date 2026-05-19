@@ -1,4 +1,4 @@
-from email.mine.text import MIMEText
+from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from smtplib import SMTP_SSL
 
