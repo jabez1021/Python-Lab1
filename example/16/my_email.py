@@ -1,22 +1,22 @@
-from email.mime.text import MIMEText
+﻿from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from smtplib import SMTP_SSL
 
-SMTP_SERVER = "smtp.naver.com"
-SMTP_PORT = 465
-SMTP_USER = "jabez1021@naver.com"
-# real password #
-SMTP_PASSWORD = "8MRCFMECM64Q"
+SMTP_SERVER='smtp.naver.com'
+SMTP_PORT=465
+SMTP_USER='lthlovelee'
+# 실제 비밀번호를 입력해야 합니다.
+SMTP_PASSWORD=''
 
-def send_mail(name, recvs, cc, hidden_cc, ontents, attachment=False):
-    msg = MIMEMultipart("alternative")
+def send_mail(name, addr, contents, attachment=False):
+    msg = MIMEMultipart('alternative')
 
     if attachment:
         msg = MIMEMultipart('mixed')
 
-    msg['From'] = SMTP_USER
-    msg['To'] = recvs
-    msg['CC'] = ccmsg['Subject'] = name+'님, 메일이 도착했습니다.'
+    msg['From'] = SMTP_USER + '@naver.com'
+    msg['To'] = addr
+    msg['Subject'] = name+'님, 메일이 도착했습니다.'
 
     text = MIMEText(contents)
     msg.attach(text)
@@ -36,12 +36,7 @@ def send_mail(name, recvs, cc, hidden_cc, ontents, attachment=False):
         file_data.add_header('Content-Disposition', 'attachment', filename=filename)
         msg.attach(file_data)
 
-    targets = ','.join((recvs, cc, hidden_cc))
-
     smtp = SMTP_SSL(SMTP_SERVER, SMTP_PORT)
     smtp.login(SMTP_USER, SMTP_PASSWORD)
-    smtp.sendmail('......@naver.com', targets.split(','), msg.as_string())
+    smtp.sendmail('......@naver.com', addr, msg.as_string())
     smtp.close()
-
-send_mail('이태화', '.....@gmail.com,......@lahion.com',
-        '......@naver.com', 'alghost@moreum.co.kr', '테스트입니다')
